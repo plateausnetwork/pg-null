@@ -45,6 +45,19 @@ func ParseID(base62 string) (UUID, error) {
 	}, nil
 }
 
+// ParseUUID parses a uuid string value into an UUID.
+func ParseUUID(strUUID string) (UUID, error) {
+	v, err := uuid.Parse(strUUID)
+	if err != nil {
+		return UUID{}, errors.New("invalid parse uuid")
+	}
+
+	return UUID{
+		UUID:  v,
+		Valid: true,
+	}, nil
+}
+
 // ID parses the provided base62 string and returns the
 // corresponding UUID value. Errors are ignored.
 func ID(base62 string) UUID {
