@@ -91,6 +91,13 @@ func (j JSON) Value() (driver.Value, error) {
 	return nil, nil
 }
 
+// RemoveFields remove all the keys from the data
+func (j *JSON) RemoveFields(fields []string) {
+	for _, field := range fields {
+		delete(j.Map, field)
+	}
+}
+
 // UnmarshalJSON converts the value from a json value.
 func (j *JSON) UnmarshalJSON(bs []byte) error {
 	if len(bs) == 0 {
