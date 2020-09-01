@@ -98,6 +98,13 @@ func (j *JSON) RemoveFields(fields []string) {
 	}
 }
 
+// Join updates all values from maps
+func (j *JSON) Join(maps map[string]interface{}) {
+	for key, value := range maps {
+		j.Map[key] = value
+	}
+}
+
 // UnmarshalJSON converts the value from a json value.
 func (j *JSON) UnmarshalJSON(bs []byte) error {
 	if len(bs) == 0 {
