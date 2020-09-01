@@ -100,6 +100,11 @@ func (j *JSON) RemoveFields(fields []string) {
 
 // Join updates all values from maps
 func (j *JSON) Join(maps map[string]interface{}) {
+	if !j.Valid {
+		j.Set(maps)
+		return
+	}
+
 	for key, value := range maps {
 		j.Map[key] = value
 	}
