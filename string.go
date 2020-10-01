@@ -18,7 +18,7 @@ func S(s string) String {
 }
 
 //CheckNull verifies if the string is equivalent to null and, if so, sets the valid attribute to false
-func CheckNull(nullstr string, s String) String {
+func IsNullStr(nullstr string, s String) String {
 	if s.String == nullstr {
 		return String{String: s.String, Valid: false}
 	}
