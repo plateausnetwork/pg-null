@@ -17,6 +17,14 @@ func S(s string) String {
 	return String{String: s, Valid: true}
 }
 
+//CheckNull verifies if the string is equivalent to null and, if so, sets the valid attribute to false
+func CheckNull(nullstr string, s String) String {
+	if s.String == nullstr {
+		return String{String: s.String, Valid: false}
+	}
+	return s
+}
+
 // Eq returns true if the nullable string is non-null and is
 // equal to other.
 func (s String) Eq(other string) bool {
