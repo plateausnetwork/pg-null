@@ -17,10 +17,10 @@ func S(s string) String {
 	return String{String: s, Valid: true}
 }
 
-//CheckNull verifies if the string is equivalent to null and, if so, sets the valid attribute to false
+//IsNullStr verifies if the string is equivalent to null and, if so, sets the valid attribute to false
 func IsNullStr(nullstr string, s String) String {
 	if s.String == nullstr {
-		return String{String: s.String, Valid: false}
+		return String{String: "", Valid: false}
 	}
 	return s
 }
