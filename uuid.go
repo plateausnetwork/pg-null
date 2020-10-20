@@ -141,27 +141,7 @@ func (uid UUID) Value() (driver.Value, error) {
 
 // UnmarshalJSON converts the value from a json value.
 func (uid *UUID) UnmarshalJSON(b []byte) error {
-	// null value
-	if len(b) == 0 {
-		uid.Valid = false
-		uid.UUID = uuid.UUID{}
-		return nil
-	}
 
-	// base62 format
-	if len(b) < 32 {
-		var str string
-		if err := json.Unmarshal(b, &str); err != nil {
-			return err
-		}
-
-		x := ID(str)
-		uid.UUID = x.UUID
-		uid.Valid = x.Valid
-		return nil
-	}
-
-	// 'normal' format
 	if err := json.Unmarshal(b, &uid.UUID); err != nil {
 		return err
 	}
@@ -173,7 +153,7 @@ func (uid *UUID) UnmarshalJSON(b []byte) error {
 // MarshalJSON converts the type to a valid json value.
 func (uid UUID) MarshalJSON() ([]byte, error) {
 	if uid.Valid {
-		return json.Marshal(uid.Base62())
+		return json.Marshal(uid.String())
 	}
 
 	return json.Marshal(nil)
