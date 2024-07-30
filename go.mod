@@ -1,4 +1,4 @@
-module github.com/rhizomplatform/pg-null
+module github.com/plateausnetwork/pg-null
 
 go 1.14
 

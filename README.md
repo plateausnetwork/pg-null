@@ -14,7 +14,7 @@ To build from source, you will need the following prerequisites:
 First, clone the project:
 
 ```bash
-git clone git@github.com:rhizomplatform/pg-null.git /your/directory/of/choice/rhizom
+git clone git@github.com:plateausnetwork/pg-null.git /your/directory/of/choice/rhizom
 cd /your/directory/of/choice/rhizom
 ```
 
@@ -22,7 +22,7 @@ cd /your/directory/of/choice/rhizom
 
 ```go
 import (
-  null "github.com/rhizomplatform/pg-null"
+  null "github.com/plateausnetwork/pg-null"
 )
 
 type myStruct struct {
